@@ -1,0 +1,20 @@
+$list: (#fff100 'yellow') (#333333 'black') (#dddddd 'grey');
+$dim: 50px;
+@mixin make-colors {
+  @each $color-list in $list{
+      &.#{nth($color-list,2)} {
+        background-color: #{nth($color-list,1)};
+    }
+  }
+}
+
+.container {
+    .dot{
+      @include make-colors();
+      width:$dim;
+      height:$dim;
+      border-radius:$dim;
+      float:left;
+      margin:1rem;
+    }
+}
