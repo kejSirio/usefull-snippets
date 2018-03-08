@@ -1,0 +1,24 @@
+$text-sizes:('large' 3vw) ('medium' 2vw) ('small' 1vw);
+$text-family: ('serif' 'Times-New-Roman Serif') 
+              ('sans-serif' 'Arial, Sans-serif') 
+              ('courier' 'Courier, monospace');
+
+@mixin make-text {
+  @each $text-dim in $text-sizes{
+      &.#{nth($text-dim,1)} {
+        font-size: #{nth($text-dim,2)};
+    }
+  }
+  @each $font-family in $text-family{
+      &.#{nth($font-family,1)} {
+        font-family: #{nth($font-family,2)};
+    }
+  }
+}
+
+.container{
+  margin:1rem;
+  .text{
+    @include make-text();
+  }
+}
